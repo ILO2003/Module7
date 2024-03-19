@@ -1,20 +1,20 @@
 version: '3'
 services:
   docker-exercise:
-    image: docker-exercice:v1.0
+    image: 157.245.67.66:8083/docker-exercice:v1.0
     environment:
       - DB_USER=${DB_USER}
-      - DB_PWD=${DB_PWD} 
-      - DB_SERVER=${DB_SERVER} 
+      - DB_PWD=${DB_PWD}
+      - DB_SERVER=${DB_SERVER}
       - DB_NAME=${DB_NAME}
     ports:
     - 8080:8080
     container_name: my_container
     depends_on:
-      - mysql 
+      - mysql
   mysql:
     image: mysql
-    ports: 
+    ports:
       - 3306:3306
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
@@ -39,5 +39,3 @@ services:
 volumes:
   mysql-data:
     driver: local
-      
-
